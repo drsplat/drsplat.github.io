@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="MeTTA: Single-View to 3D Textured Mesh Reconstruction with Test-Time Adaptation">
+  <meta name="keywords" content="Mesh reconstruction of Humans and Animals">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MeTTA: Single-View to 3D Textured Mesh Reconstruction with Test-Time Adaptation</title>
+
+  <!-- fontawesome for icons -->
+  <script src="https://kit.fontawesome.com/b6f2d55583.js" crossorigin="anonymous"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+<!--  <link rel="icon" href="./static/images/favicon.svg">-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">MeTTA: Single-View to 3D Textured Mesh Reconstruction with Test-Time Adaptation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://ug-kim.github.io">Kim Yu-Ji</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://hyunwooha.notion.site/">Hyunwoo Ha</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://kim-youwang.github.io/">Kim Youwang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://jaeheungs.github.io/">Jaeheung Surh</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/hyowonha/">Hyowon Ha</a><sup>3,&dagger;</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a><sup>1,2,4,&dagger;</sup>
+            </span>
+          </div>
+
+          <div class="publication-authors">
+            <span class="author-block"><sup>1</sup>Grad. School of AI, POSTECH,</span>
+            <span class="author-block"><sup>2</sup>Dept. of Electrical Engineering, POSTECH,</span>
+            <span class="author-block"><sup>3</sup>Bucketplace,</span>
+            <span class="author-block"><sup>4</sup>Institute for Convergence Research and Education in Advanced Technology, Yonsei University</span>
+            <br>
+            <span class="author-block"><sup>&dagger;</sup>denotes corresponding authors</span>
+            <!-- <span class="author-block"><sup>2</sup>UNIST</span> -->
+          </div>
+          <div class="is-size-5 column has-text-centered">
+            <span class="author-block bmvc-color">British Machine Vision Conference (BMVC) 2024</span>
+            <br>
+            <span class="author-block award-color">Best Poster Award</span>
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.bmvc2021-virtualconference.com/assets/papers/0926.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2408.11465"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/postech-ami/MeTTA"
+                    class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa-brands fa-github"></i>
+                  </span>
+                  <span>GitHub</span>
+                </a>
+              </span>
+
+              <!-- Data Link. -->
+              <!-- <span class="link-block">
+                <a href="https://postechackr-my.sharepoint.com/:f:/g/personal/gucka28_postech_ac_kr/EiM6SNSIJhRPl908z3zGTRoBKTBLMVA-flpTwnXDs70KgQ?e=4K2Tq9"
+                    class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fa-solid fa-download"></i>
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span> -->
+
+              <!-- POSTER Link. -->
+              <span class="link-block">
+                <a href="https://drive.google.com/file/d/1QBZdAz8e9vjHkjsuCQbHZZvcSmRH4p5U/view?usp=sharing"
+                    class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fa-solid fa-image"></i>
+                  </span>
+                  <span>Poster</span>
+                </a>
+              </span>
+
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.bmvc2021-virtualconference.com/conference/papers/paper_0926.html"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+<!--              &lt;!&ndash; Code Link. &ndash;&gt;-->
+<!--              <span class="link-block">-->
+<!--                <a href="https://github.com/google/nerfies"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="fab fa-github"></i>-->
+<!--                  </span>-->
+<!--                  <span>Code</span>-->
+<!--                  </a>-->
+<!--              </span>-->
+<!--              &lt;!&ndash; Dataset Link. &ndash;&gt;-->
+<!--              <span class="link-block">-->
+<!--                <a href="https://github.com/google/nerfies/releases/tag/0.1"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="far fa-images"></i>-->
+<!--                  </span>-->
+<!--                  <span>Data</span>-->
+<!--                  </a>-->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+<!--      <video id="teaser" autoplay muted loop height="100%">-->
+<!--        <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/teaser.mp4"-->
+<!--                type="video/mp4">-->
+<!--      </video>-->
+      <!-- <video width="50%" src="./video/metta_ver2.mov"></video> --> 
+      <div class="video-container">
+        <video class="custom-video" autoplay controls muted loop>
+          <source src="./video/metta_ver2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <!-- <img src="images/pipeline.png"> -->
+      <h2 class="subtitle">
+        We propose MeTTA, which closes the domain gap between training and test time 
+        by jointly updating mesh, texture, and viewpoint 
+        with a carefully designed learnable virtual camera 
+        by leveraging the generative model prior.
+      </h2>
+<!--      <video src= "./video/DeMR_Demo.mov"></video>-->
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          Reconstructing 3D from a single view image is a long-standing challenge. 
+          One of the popular approaches to tackle this problem is learning-based methods, 
+          but dealing with the test cases unfamiliar with training data (Out-of-distribution; OoD) 
+          introduces an additional challenge. To adapt for unseen samples in test time, 
+          we propose MeTTA, a test-time adaptation (TTA) exploiting generative prior. 
+          We design joint optimization of 3D geometry, appearance, and pose to handle OoD cases. 
+          However, the alignment between the reference image and the 3D shape via the estimated viewpoint could be erroneous, 
+          which leads to ambiguity. To address this ambiguity, we carefully design learnable virtual cameras and their self-calibration. 
+          In our experiments, we demonstrate that MeTTA effectively deals with OoD scenarios 
+          at failure cases of existing learning-based 3D reconstruction models and enables obtaining a realistic appearance 
+          with physically based rendering (PBR) textures.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">MeTTA</h2>
+          <div class="content has-text-justified">
+            <img src="images/pipeline.png">
+            We propose a test-time adaptation pipeline to reconstruct a
+            3D mesh with PBR texture from a single-view image. “Ref. Image” refers to the reference
+            input image. “Seg. Image” refers to the object-segmented image from “Ref. Image”.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    
+</section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Cross-domain Results</h2>
+          <div class="content has-text-justified">
+  
+            <div class="video-container">
+              <video autoplay controls muted loop>
+                <source src="./video/cross_domain_1.mp4" type="video/mp4">
+              </video>
+            </div>
+  
+            <div class="video-container">
+              <video autoplay controls muted loop>
+                <source src="./video/cross_domain_2.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="video-container">
+              <video autoplay controls muted loop>
+                <source src="./video/cross_domain_3.mp4" type="video/mp4">
+              </video>
+            </div>
+
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">In-domain Results (Pix3D)</h2>
+          <div class="content has-text-justified">
+  
+            <div class="video-container">
+              <video autoplay controls muted loop>
+                <source src="./video/in_domain_1.mp4" type="video/mp4">
+              </video>
+            </div>
+  
+            <div class="video-container">
+              <video autoplay controls muted loop>
+                <source src="./video/in_domain_2.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="video-container">
+              <video autoplay controls muted loop>
+                <source src="./video/in_domain_3.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="video-container">
+              <video autoplay controls muted loop>
+                <source src="./video/in_domain_4.mp4" type="video/mp4">
+              </video>
+            </div>
+
+          </div>
+        </div>
+      </div>
+  </section>
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">PBR Editing</h2>
+        <div class="content has-text-justified">
+
+          <div class="video-container">
+            <video autoplay controls muted loop>
+              <source src="./video/PBR_relighting.mp4" type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">PBR Editing #2 - Material Editing</h2>
+          <div class="content has-text-justified">
+  
+            <div class="video-container">
+              <video autoplay controls muted loop>
+                <source src="./video/PBR_mat_edit.mp4" type="video/mp4">
+              </video>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+  </section> -->
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3">PBR Editing</h2>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-fifths">
+          <div class="content has-text-justified">
+            <div class="video-container">
+              <video autoplay controls muted loop>
+                <source src="./video/relighting.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="column is-two-fifths">
+          <div class="content has-text-justified">
+            <div class="video-container">
+              <video autoplay controls muted loop>
+                <source src="./video/mat_edit.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+    <!--/ Abstract. -->
+<!--<iframe src="https://www.youtube.com/embed/EbJYOJ-O10Y?rel=0&amp;showinfo=0&autoplay=1&mute=1&amp;loop=1" width="912" height="320" frameborder="0"></iframe>-->
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe width="791" height="445" src="https://www.youtube.com/embed/HA6EERLmgiw" title="HDR-Plenoxels: Self-CalibratingHigh Dynamic Range Radiance Fields, ECCV 2022" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!--          <embed src="https://slideslive.com/embed/presentation/38970215?embed_parent_url=https%3A%2F%2Fwww.bmvc2021-virtualconference.com%2Fconference%2Fpapers%2Fpaper_0926.html&embed_container_origin=https%3A%2F%2Fwww.bmvc2021-virtualconference.com&embed_container_id=presentation-embed-38970215&auto_load=true&auto_play=false&zoom_ratio=&disable_fullscreen=false&locale=ko&vertical_enabled=true&vertical_enabled_on_mobile=false&allow_hidden_controls_when_paused=false&fit_to_viewport=true&user_uuid=cfb87119-bfae-4b2b-b7dc-e094aeafb408" style="width:100%;height:500px">-->
+<!--          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"-->
+<!--                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+          <!-- <iframe src="https://slideslive.com/embed/presentation/38970215?embed_parent_url=https%3A%2F%2Fwww.bmvc2021-virtualconference.com%2Fconference%2Fpapers%2Fpaper_0926.html&amp;embed_container_origin=https%3A%2F%2Fwww.bmvc2021-virtualconference.com&amp;embed_container_id=presentation-embed-38970215&amp;auto_load=true&amp;auto_play=false&amp;zoom_ratio=&amp;disable_fullscreen=false&amp;locale=ko&amp;vertical_enabled=true&amp;vertical_enabled_on_mobile=false&amp;allow_hidden_controls_when_paused=false&amp;fit_to_viewport=true&amp;user_uuid=cfb87119-bfae-4b2b-b7dc-e094aeafb408" height="640" scrolling="no" frameborder="0" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-top-navigation" allow="autoplay; fullscreen" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" style="margin: 0px auto; display: block; width: 100%;"></iframe> -->
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section> -->
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+    @inproceedings{yu2024metta,
+        title={MeTTA: Single-View to 3D Textured Mesh Reconstruction with Test-Time Adaptation},
+        author={Yu-Ji, Kim and Ha, Hyunwoo and Youwang, Kim and Surh, Jaeheung and Ha, Hyowon and Oh, Tae-Hyun},
+        booktitle={The British Machine Vision Conference (BMVC)},
+        year={2024}
+    }
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+<!--      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>-->
+<!--        <i class="fab fa-github"></i>-->
+<!--      </a>-->
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <h2 class="title is-3">Acknowledgement</h2>
+          <p>
+            We thank the members of AMILab and Bucketplace for their helpful discussions and proofreading (especially for <a href="https://sites.google.com/view/kwon-byung--ki/%ED%99%88">Kwon Byung-Ki</a>).
+            We would also like to thank <a href="https://aruichen.github.io/">Rui Chen</a> for his help with the implementation of the code.
+            <br>
+            This project was supported by Bucketplace and also supported by Institute of Information & communications Technology Planning & Evaluation (IITP) 
+            grant funded by the Korea government(MSIT) (No.RS-2022-II220290, Visual Intelligence for Space-Time Understanding and Generation based on Multi-layered Visual Common Sense; 
+            No.RS-2022-II220124, Development of Artificial Intelligence Technology for Self-Improving Competency-Aware Learning Capabilities; 
+            and No.RS-2019-II191906, Artificial Intelligence Graduate School Program(POSTECH)).
+          </p>
+
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to the <a href="https://github.com/nerfies/nerfies.github.io">original page</a> in the footer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
