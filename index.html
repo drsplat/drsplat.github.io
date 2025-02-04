@@ -80,7 +80,7 @@
               <a href="https://vllab.ee.ntu.edu.tw/ycwang.html">Yu-Chiang Frank Wang</a><sup>3</sup>,
             </span>
             <span class="author-block">
-              <a href="https://jaesung-choe.github.io/">Jaesung Choe</a><sup>3,&dagger;</sup>,
+              <a href="https://jaesung-choe.github.io/">Jaesung Choe</a><sup>3</sup>,
             </span>
             <span class="author-block">
               <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a><sup>1,2,4,&dagger;</sup>
@@ -115,7 +115,7 @@
 
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/postech-ami/MeTTA"
+                <a href="https://drsplat.github.io/"
                     class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="fa-brands fa-github"></i>
@@ -184,17 +184,55 @@
         <div class="column is-four-fifths">
           <h2 class="title is-3">MeTTA</h2>
           <div class="content has-text-justified">
-            <img src="images/pipeline.png">
-            We propose a test-time adaptation pipeline to reconstruct a
-            3D mesh with PBR texture from a single-view image. “Ref. Image” refers to the reference
-            input image. “Seg. Image” refers to the object-segmented image from “Ref. Image”.
+            <img src="images/pipeline.pdf">
+            Dr. Splat directly associates CLIP embeddings with 3D Gaussians for open-vocabulary 3D scene understanding, 
+            achieving state-of-the-art 3D perception without rendering.
             </p>
 
           </div>
         </div>
       </div>
-    
 
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full">
+            <h2 class="title is-3">3D object selection</h2>
+          </div>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-two-fifths">
+            <div class="content has-text-justified">
+              <div class="video-container">
+                <img src="./images/result.pdf">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>    
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3">Large scene results</h2>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-fifths">
+          <div class="content has-text-justified">
+            <div class="video-container">
+              <video autoplay controls muted loop>
+                <source src="./video/demo_video.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
